@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let searchName = document.querySelector('input#search')
     
-    let submitBtn = document.querySelector('input[name="submit"]')
-    submitBtn.addEventListener('click', (e) => {
+    let submitBtn = document.getElementById('github-form')
+    submitBtn.addEventListener('submit', (e) => {
         e.preventDefault()
         fetch('https://api.github.com/search/users?q=octocat' ,{
             method: 'GET',
@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     liUsername.innerText = element.login
                     liAvatar.src = element.avatar_url
-                    liLink.href = element.url
-                    liLink.innerText = `${element.url}`
+                    liLink.href = element.html_url
+                    liLink.innerText = `${element.html_url}`
                     
                     userList.appendChild(liUsername)
                     
